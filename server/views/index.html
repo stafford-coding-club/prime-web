@@ -4,15 +4,18 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
    <title>Document</title>
 </head>
 <body>
-   <form id="input" style="text-align: center">
-      <h2 id="problem">{{ PROBLEM }}</h2>
-      <label for="answer">Answer</label>
-      <input type="text" name="answer" id="answer" maxlength="30" required>
-      <button type="submit">SUBMIT</button>
-   </form>
-   <script src="/scripts/index.js"></script>
+   <div id="content">
+      <form id="input" style="text-align: center">
+         <h2 id="problem">{{ PROBLEM }}</h2>
+         <label for="answer">Answer</label>
+         <input type="text" name="answer" id="answer" maxlength="30" required>
+         <button type="submit">SUBMIT</button>
+      </form>
+      <script src="/scripts/index.js"></script>
+   </div>
 </body>
 </html>

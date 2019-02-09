@@ -8,7 +8,7 @@ router.use(express.json());
 router.use(express.static('public'));
 
 router.get('/', (req, res, next) => {
-   res.sendFile(`${__dirname}/views/index.html`);
+   res.render('index.html');
 });
 
 router.post('/answer', (req, res, next) => {
@@ -18,20 +18,16 @@ router.post('/answer', (req, res, next) => {
 
    const compare = eval(question) === eval(answer);
 
-   // TODO: Make this work (Should redirect user to admin file because math equation was a success)
    if (compare){
-      res.status(302).sendFile(`${__dirname}/views/admin.html`);
-      next();
+      res.render('admin.html');
    } else {
-      res.status(200).json({
-         message: 'Wrong answer!',
-      });
+      res.render('failure.html');
    }
 });
 
 router.use((error, req, res, next) => {
    res.status(500);
-   res.sendFile(`${__dirname}/views/error.html`);
+   res.render('error.html');
 });
 
 module.exports = router;

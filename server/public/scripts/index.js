@@ -8,6 +8,7 @@ const question = '1 + 1';
 problem.innerHTML = question;
 
 const form = document.querySelector('#input');
+const content = document.querySelector('#content');
 
 const API = `${window.location.href}answer`;
 
@@ -27,7 +28,25 @@ form.addEventListener('submit', (event) => {
       }),
       headers: {
          'content-type': 'application/json',
+         'Accept': 'text/html'
       }
+   })
+   .then(res => res.text())
+   .then(page => {
+
+      const data = page.split('<script>');
+
+      content.innerHTML = data[0];
+
+      if (data[1]){
+         const script = data[1].replace('</script>', '');
+         
+         const tag = document.createElement('script');
+         tag.innerHTML = script;
+
+         document.head.appendChild(tag);
+      }
+
    })
    .catch(error => console.error(error));
 });

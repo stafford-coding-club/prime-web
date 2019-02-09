@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
-   <title>Document</title>
-</head>
-<body>
-   <button id="controller">CLICK</button>
-   <script language="javascript" type="text/javascript">
+<button id="controller">CLICK</button>
+<script>
       
-      const connection = window.location.href;
-      const socket = io(connection);
+   const connection = window.location.href;
+   const socket = io(connection);
 
-      const button = document.querySelector('#controller');
+   const button = document.querySelector('#controller');
 
-      button.addEventListener('click', function(){
-         socket.emit('click', {});
-      });
+   button.addEventListener('click', function(){
+      socket.emit('click', {});
+   });
       
-   </script>
-</body>
-</html>
+</script>

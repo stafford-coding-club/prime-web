@@ -1,6 +1,6 @@
-from socketIO_client import SocketIO, LoggingNamespace
+from socketIO_client import SocketIO
 
-socketIO = SocketIO('localhost', 3000, LoggingNamespace)
+socketIO = SocketIO('localhost', 3000)  
 
 # Callbacks
 def on_connect():
@@ -17,7 +17,7 @@ def clicked(*data):
    print('Button was clicked!')
    print(data)
 
-   # TODO: Make this do stuff with the robot.
+   # TODO: Make this do stuff with the robot. 
 
 # Default events
 socketIO.on('connect', on_connect)
