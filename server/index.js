@@ -18,7 +18,11 @@ app.use('/', index);
 
 io.sockets.on('connection', socket => {
    console.log(`NEW CONNECTION! ${socket.id}`);
-   // TODO: Listen for 'click' socket and send 'clicked' socket
+   
+   socket.on('click', data => {
+      socket.broadcast.emit('clicked', data);
+   });
+
 });
 
 module.exports = app;

@@ -18,8 +18,6 @@ router.post('/answer', (req, res, next) => {
 
    const compare = eval(question) === eval(answer);
 
-   console.log("hello");
-
    // TODO: Make this work (Should redirect user to admin file because math equation was a success)
    if (compare){
       res.status(302).sendFile(`${__dirname}/views/admin.html`);
