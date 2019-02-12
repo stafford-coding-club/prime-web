@@ -1,28 +1,19 @@
-from socketIO_client import SocketIO
+import socketio
 
-socketIO = SocketIO('localhost', 3000)  
+sio = socketio.Client()
 
-# Callbacks
+sio.connect('http://localhost:5555')
+
+@sio.on('connect')
 def on_connect():
-   print('CONNECTION ESTABLISHED!')
+   print('Connection successful')
 
+@sio.on('clicked')
+def on_clicked(data):
+   print('click event recieved!');
+
+   # TODO: Make this do stuff with the robot arm
+
+@sio.on('disconnect')
 def on_disconnect():
-   print('LOST CONNECTION!')
-
-def on_reconnect():
-   print('CONNECTION REESTABLISHED')
-
-# @param data (JSON) Data from the socket received
-def clicked(*data):
-   print('Button was clicked!')
-   print(data)
-
-   # TODO: Make this do stuff with the robot. 
-
-# Default events
-socketIO.on('connect', on_connect)
-socketIO.on('disconnect', on_disconnect)
-socketIO.on('reconnect', on_reconnect)
-
-# Custom events
-socketIO.on('clicked', clicked)
+   print('Disconnected!')

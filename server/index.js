@@ -4,7 +4,7 @@ import express from "express";
 import socket from "socket.io";
 import path from "path";
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5555;
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -26,7 +26,7 @@ io.sockets.on('connection', socket => {
    
    socket.on('click', data => {
       console.log('GOT CLICK EVENT! EMITTING CLICKED EVENT!');
-      socket.broadcast.emit('clicked', data);
+      socket.broadcast.emit('clicked', "herro world");
    });
 
 });
