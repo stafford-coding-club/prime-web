@@ -1,14 +1,14 @@
 # prerequisites
 
-  node v8+
-  npm v6+
-  python v3+
+     node v8+
+     npm v6+
+     python v3+
 
 # installing server
 
-  cd server
-  npm install
+     cd server
+     npm install
   
 # running server
 
-  npm start
+     npm start
