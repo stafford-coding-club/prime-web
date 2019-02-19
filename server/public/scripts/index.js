@@ -2,8 +2,15 @@
 
 const problem = document.querySelector('#problem');
 
-// TODO: Make more problems
-const question = '1 + 1';
+const question = [
+   '1 + 1',
+   '5 * 5',
+   '1 + 2 * 3',
+   '64 / 16',
+   '69 + 420',
+   '9 % 2',
+   '7 * 2'
+][Math.floor(Math.random() * 6)];
 
 problem.innerHTML = question;
 
